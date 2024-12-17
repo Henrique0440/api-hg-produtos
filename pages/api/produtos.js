@@ -49,7 +49,7 @@ export default async function handler(req, res) {
             const result = await collection.insertOne(novoItem);
 
             return res.status(201).json({
-                message: "Item adicionado ao cardápio com sucsso!",
+                message: "Item adicionado aos produtos com sucsso!",
                 id: result.insertedId,
             })
         } else {
