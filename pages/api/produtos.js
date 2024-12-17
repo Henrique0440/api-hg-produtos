@@ -39,13 +39,13 @@ export default async function handler(req, res) {
             res.status(200).json(documentos);
         }
         else if (req.method === 'POST') {
-            const { name, description, mark, price, link } = req.body;
+            const { name, description, mark, category, price, link } = req.body;
 
-            if (!name || !description || !mark || !price || !link) {
+            if (!name || !description || !mark || category || !price || !link) {
                 return res.status(400).json({ error: "Todos os campos são obrigatórios." })
             }
 
-            const novoItem = { name, description, mark, price, link };
+            const novoItem = { name, description, mark, category, price, link };
             const result = await collection.insertOne(novoItem);
 
             return res.status(201).json({
